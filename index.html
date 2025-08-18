@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TriqAI - Asistente Virtual</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <button class="new-chat-btn">
+                <i class="fas fa-plus"></i>
+                Nueva conversación
+            </button>
+        </div>
+
+        <div class="chat-history">
+            <div class="chat-item">
+                <i class="fas fa-message"></i>
+                <span>Creación de mapa en formato .schem</span>
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+            <div class="chat-item">
+                <i class="fas fa-message"></i>
+                <span>Creación de un plugin personalizado</span>
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+            <div class="chat-item">
+                <i class="fas fa-message"></i>
+                <span>Traducir texto de Ingés a Español</span>
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span>Usuario</span>
+                <i class="fas fa-cog"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="chat-header">
+            <div class="model-selector">
+                <span class="model-name">BETA</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </header>
+
+        <div class="welcome-container">
+            <div class="welcome-content">
+                <div class="ai-logo">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h1>¿En qué puedo ayudarte hoy?</h1>
+                <p>Soy tu asistente de IA. Puedo ayudarte con una gran variedad de tareas como programación, escritura,
+                    análisis y mucho más.</p>
+
+                <div class="suggestions">
+                    <button class="suggestion-card">
+                        <i class="fas fa-code"></i>
+                        <span>Programar un plugin desde cero</span>
+                    </button>
+                    <button class="suggestion-card">
+                        <i class="fas fa-pen"></i>
+                        <span>Crear una construcción</span>
+                    </button>
+                    <button class="suggestion-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Ideas para mi servidor</span>
+                    </button>
+                    <button class="suggestion-card">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Traducir textos</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-container">
+                <textarea id="messageInput" placeholder="Escribe tu mensaje aquí..." rows="1"></textarea>
+                <button class="send-button" id="sendButton">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="input-footer">
+                <small>TriqAI puede cometer errores. Considera verificar información importante.</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const suggestions = document.querySelectorAll('.suggestion-card');
+
+        messageInput.addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+
+            if (this.value.trim()) {
+                sendButton.classList.add('active');
+            } else {
+                sendButton.classList.remove('active');
+            }
+        });
+
+        messageInput.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                if (this.value.trim()) {
+                    console.log('Redirigiendo al chat con mensaje:', this.value);
+                    // window.location.href = 'chat.html?message=' + encodeURIComponent(this.value);
+                }
+            }
+        });
+
+        sendButton.addEventListener('click', function () {
+            if (messageInput.value.trim()) {
+                console.log('Redirigiendo al chat con mensaje:', messageInput.value);
+            }
+        });
+
+        suggestions.forEach(suggestion => {
+            suggestion.addEventListener('click', function () {
+                const text = this.querySelector('span').textContent;
+                messageInput.value = text;
+                messageInput.style.height = 'auto';
+                messageInput.style.height = messageInput.scrollHeight + 'px';
+                sendButton.classList.add('active');
+                messageInput.focus();
+            });
+        });
+
+        window.addEventListener('load', function () {
+            messageInput.focus();
+        });
+    </script>
+</body>
+
+</html>
