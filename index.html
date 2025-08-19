@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TriqAI - Asistente Virtual</title>
+    <title>TriqAI - Inicio</title>
     <link rel="stylesheet" href="assets/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -12,25 +12,12 @@
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
-            <button class="new-chat-btn">
-                <i class="fas fa-plus"></i>
-                Nueva conversación
-            </button>
+            <button class="new-chat-btn"><i class="fas fa-plus"></i> Nueva conversación</button>
         </div>
-
-        <div class="chat-history">
-            <div class="chat-item">
-                <i class="fas fa-message"></i>
-                <span>Proyecto de programación</span>
-                <i class="fas fa-ellipsis-h"></i>
-            </div>
-        </div>
-
+        <div class="chat-history"></div>
         <div class="sidebar-footer">
             <div class="user-profile">
-                <div class="avatar">
-                    <i class="fas fa-user"></i>
-                </div>
+                <div class="avatar"><i class="fas fa-user"></i></div>
                 <span>Usuario</span>
                 <i class="fas fa-cog"></i>
             </div>
@@ -38,52 +25,26 @@
     </div>
 
     <div class="main-content">
-        <header class="chat-header">
-            <div class="model-selector">
-                <span class="model-name">GPT-4</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </header>
-
         <div class="welcome-container">
             <div class="welcome-content">
-                <div class="ai-logo">
-                    <i class="fas fa-robot"></i>
-                </div>
+                <div class="ai-logo"><i class="fas fa-robot"></i></div>
                 <h1>¿En qué puedo ayudarte hoy?</h1>
-                <p>Soy tu asistente de IA. Puedo ayudarte con una gran variedad de tareas como programación, escritura,
-                    análisis y mucho más.</p>
+                <p>Puedo generar schematics, crear plugins, traducir textos y responder cualquier duda de Minecraft.</p>
 
                 <div class="suggestions">
-                    <button class="suggestion-card">
-                        <i class="fas fa-cube"></i>
-                        <span>Generar schematics</span>
-                    </button>
-                    <button class="suggestion-card">
-                        <i class="fas fa-plug"></i>
-                        <span>Crear plugins</span>
-                    </button>
-                    <button class="suggestion-card">
-                        <i class="fas fa-language"></i>
-                        <span>Traducir textos</span>
-                    </button>
-                    <button class="suggestion-card">
-                        <i class="fas fa-question-circle"></i>
-                        <span>Preguntar cualquier cosa</span>
-                    </button>
+                    <button class="suggestion-card"><i class="fas fa-cube"></i><span>Generar schematics</span></button>
+                    <button class="suggestion-card"><i class="fas fa-plug"></i><span>Crear plugins</span></button>
+                    <button class="suggestion-card"><i class="fas fa-language"></i><span>Traducir textos</span></button>
+                    <button class="suggestion-card"><i class="fas fa-question-circle"></i><span>Preguntar cualquier
+                            cosa</span></button>
                 </div>
-            </div>
-        </div>
 
-        <div class="input-area">
-            <div class="input-container">
-                <textarea id="messageInput" placeholder="Escribe tu mensaje aquí..." rows="1"></textarea>
-                <button class="send-button" id="sendButton">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-            <div class="input-footer">
-                <small>TriqAI puede cometer errores. Considera verificar información importante.</small>
+                <div class="input-area">
+                    <div class="input-container">
+                        <textarea id="messageInput" placeholder="Escribe tu pregunta..."></textarea>
+                        <button id="sendButton" class="send-button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
